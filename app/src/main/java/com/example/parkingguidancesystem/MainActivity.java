@@ -27,15 +27,38 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void LaunchModule(int choice){
-        /*Intent intent1 = new Intent(this, )
+        Intent intent1 = new Intent(this, com.example.modulecustomer.MainActivity.class);
+/*      Intent intent2 = new Intent(this, com.example.ModuleName.Activity.class);
+        Intent intent3 = new Intent(this, com.example.ModuleName.Activity.class);
+        Intent intent4 = new Intent(this, com.example.ModuleName.Activity.class);
+ */
         switch (choice) {
             case 1:
                 startActivity(intent1);
                 break;
-            // Add additional cases if needed
+/*            case 2:
+                startActivity(intent2);
+                break;
+            case 3:
+                startActivity(intent3);
+                break;
+            case 4:
+                startActivity(intent4);
+                break;
+ */
             default:
-                // Handle default case if necessary
-                */
+
+                }
+
         }
 
     }
+
+
+
+
+
+
+
+
+
