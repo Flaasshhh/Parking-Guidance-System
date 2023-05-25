@@ -62,11 +62,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonOpenExitStationModule"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonExitStationModule"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/ButtonOpenExitStationModule"
+        android:id="@+id/ButtonExitStationModule"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"

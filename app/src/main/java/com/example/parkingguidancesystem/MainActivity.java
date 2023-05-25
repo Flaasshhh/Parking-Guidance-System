@@ -10,17 +10,29 @@ import android.widget.Button;
 import com.example.modulecustomer.MainActivityCustomer;
 
 public class MainActivity extends AppCompatActivity {
-        private Button CustomerButton;
+        private Button ButtonCustomer;
+        private Button ButtonEntryStation;
+        private Button ButtonExitStation;
+        private Button ButtonAdmin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CustomerButton = findViewById(R.id.ButtonCustomerModule);
-        CustomerButton.setOnClickListener(new View.OnClickListener() {
+        ButtonCustomer = findViewById(R.id.ButtonCustomerModule);
+        ButtonEntryStation = findViewById(R.id.ButtonEntryStationModule);
+        ButtonExitStation = findViewById(R.id.ButtonExitStationModule);
+        ButtonAdmin = findViewById(R.id.ButtonAdminModule);
+        ButtonCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LaunchModule(1);
+            }
+        });
+        ButtonEntryStation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LaunchModule(2);
             }
         });
 
@@ -30,18 +42,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void LaunchModule(int choice){
         Intent intent1 = new Intent(this, MainActivityCustomer.class);
-/*      Intent intent2 = new Intent(this, com.example.ModuleName.Activity.class);
-        Intent intent3 = new Intent(this, com.example.ModuleName.Activity.class);
+        Intent intent2 = new Intent(this, com.example.moduleentrystation.MainActivityEntryStation.class);
+/*      Intent intent3 = new Intent(this, com.example.ModuleName.Activity.class);
         Intent intent4 = new Intent(this, com.example.ModuleName.Activity.class);
  */
         switch (choice) {
             case 1:
                 startActivity(intent1);
                 break;
-/*            case 2:
+            case 2:
                 startActivity(intent2);
                 break;
-            case 3:
+/*            case 3:
                 startActivity(intent3);
                 break;
             case 4:
