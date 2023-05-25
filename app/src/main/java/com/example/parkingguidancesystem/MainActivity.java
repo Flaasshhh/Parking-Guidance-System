@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.modulecustomer.MainActivityCustomer;
+
 public class MainActivity extends AppCompatActivity {
         private Button CustomerButton;
     @Override
@@ -14,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CustomerButton = findViewById(R.id.CustomerButton);
+        CustomerButton = findViewById(R.id.ButtonCustomerModule);
         CustomerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void LaunchModule(int choice){
-        Intent intent1 = new Intent(this, com.example.modulecustomer.MainActivity.class);
+        Intent intent1 = new Intent(this, MainActivityCustomer.class);
 /*      Intent intent2 = new Intent(this, com.example.ModuleName.Activity.class);
         Intent intent3 = new Intent(this, com.example.ModuleName.Activity.class);
         Intent intent4 = new Intent(this, com.example.ModuleName.Activity.class);
