@@ -4,77 +4,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f3f2f2"
     tools:context=".MainActivity">
 
 
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="218dp"
+        android:layout_height="117dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Parking\nGuidance\nSystem"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.181"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057" />
+
+
+    <TextView
+        android:id="@+id/textViewPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:fontFamily="serif-monospace"
+        android:text="Please choose a \nmodule"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
     <Button
-        android:id="@+id/CustomerButton"
+        android:id="@+id/ButtonCustomerModule"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#020303"
         android:text="Customer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WelcomeScreenMainText" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPrompt" />
 
     <Button
-        android:id="@+id/EntryStationButton"
+        android:id="@+id/ButtonAdminModule"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Entry station"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CustomerButton" />
-
-    <Button
-        android:id="@+id/ExitStationBurron"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Exit station"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EntryStationButton" />
-
-    <Button
-        android:id="@+id/AdminButton"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
         android:layout_marginBottom="96dp"
+        android:backgroundTint="#5c5f60"
         android:text="Admin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ExitStationBurron"
-        app:layout_constraintVertical_bias="0.151" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonOpenExitStationModule"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/WelcomeScreenMainText"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/ButtonOpenExitStationModule"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Please Choose a module"
-        android:textSize="20sp"
+        android:backgroundTint="#5c5f60"
+        android:text="Exit station"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonEntryStationModule" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/ButtonEntryStationModule"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Parking Guidance System"
-        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#5c5f60"
+        android:text="Entry station"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonCustomerModule" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="146dp"
+        android:layout_height="117dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057"
+        app:srcCompat="@drawable/parking" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
