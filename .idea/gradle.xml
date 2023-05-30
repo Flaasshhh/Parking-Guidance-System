@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app/ModuleCustomer" />
             <option value="$PROJECT_DIR$/app/ModuleEntryStation" />
+            <option value="$PROJECT_DIR$/app/ModuleExitStation" />
           </set>
         </option>
       </GradleProjectSettings>

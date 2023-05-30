@@ -36,6 +36,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ButtonExitStation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LaunchModule(3);
+            }
+        });
+
+
+
     }
 
 
@@ -43,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
     public void LaunchModule(int choice){
         Intent intent1 = new Intent(this, MainActivityCustomer.class);
         Intent intent2 = new Intent(this, com.example.moduleentrystation.MainActivityEntryStation.class);
-/*      Intent intent3 = new Intent(this, com.example.ModuleName.Activity.class);
-        Intent intent4 = new Intent(this, com.example.ModuleName.Activity.class);
+        Intent intent3 = new Intent(this, com.example.moduleexitstation.MainActivityExitStation.class);
+        /*         Intent intent4 = new Intent(this, com.example.ModuleName.Activity.class);
  */
         switch (choice) {
             case 1:
@@ -53,10 +62,10 @@ public class MainActivity extends AppCompatActivity {
             case 2:
                 startActivity(intent2);
                 break;
-/*            case 3:
+           case 3:
                 startActivity(intent3);
                 break;
-            case 4:
+  /*           case 4:
                 startActivity(intent4);
                 break;
  */
