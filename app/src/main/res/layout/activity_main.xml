@@ -12,7 +12,6 @@
         android:id="@+id/textViewTitle"
         android:layout_width="218dp"
         android:layout_height="117dp"
-        android:fontFamily="@font/montserrat"
         android:text="Parking\nGuidance\nSystem"
         android:textColor="#000000"
         android:textSize="30sp"
@@ -22,7 +21,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.057" />
-
+    <!--
+    android:fontFamily="@font/montserrat"
+    -->
 
     <TextView
         android:id="@+id/textViewPrompt"

@@ -8,12 +8,19 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.modulecustomer.MainActivityCustomer;
+import com.example.modulecustomer.Ticket;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
         private Button ButtonCustomer;
         private Button ButtonEntryStation;
         private Button ButtonExitStation;
         private Button ButtonAdmin;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
