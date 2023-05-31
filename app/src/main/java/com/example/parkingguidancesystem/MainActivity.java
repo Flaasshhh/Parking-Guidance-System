@@ -1,11 +1,15 @@
 package com.example.parkingguidancesystem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.modulecustomer.MainActivityCustomer;
 
@@ -23,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         ButtonEntryStation = findViewById(R.id.ButtonEntryStationModule);
         ButtonExitStation = findViewById(R.id.ButtonExitStationModule);
         ButtonAdmin = findViewById(R.id.ButtonAdminModule);
+
+
         ButtonCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 LaunchModule(3);
             }
         });
+
+
+
 
 
 

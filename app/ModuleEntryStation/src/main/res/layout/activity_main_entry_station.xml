@@ -82,31 +82,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEntryStationParkingSpot" />
 
+    <!-- Add spot only appear for Admin -->
+    <Button
+        android:id="@+id/ButtonAddSpot"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:text="Add spot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <!-- Suggested Spot -->
-
     <TextView
         android:id="@+id/textEntryStationSugesstedSpot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="40dp"
         android:text="Suggested Spot"
         android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/textEntryStationSugesstedSpotOut"
         app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonAddSpot" />
 
     <TextView
         android:id="@+id/textEntryStationSugesstedSpotOut"
         android:layout_width="140dp"
         android:layout_height="57dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:text=""
+        android:textAlignment="center"
+        android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonAddSpot" />
 
     <Button
         android:id="@+id/buttonEntryStationFreeSpaces"
@@ -118,7 +129,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEntryStationSugesstedSpot"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintVertical_bias="0.0" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
