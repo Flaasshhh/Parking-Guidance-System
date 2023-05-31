@@ -16,3 +16,4 @@ rootProject.name = "Parking Guidance System"
 include ':app'
 include ':app:ModuleCustomer'
 include ':app:ModuleEntryStation'
+include ':app:ModuleExitStation'

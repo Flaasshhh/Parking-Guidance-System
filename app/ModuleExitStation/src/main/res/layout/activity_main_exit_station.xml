@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivityExitStation">
+
+
+    <!-- Enter Ticket ID -->
+
+
+    <TextView
+        android:id="@+id/textEntryStationTicketId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:text="Ticket ID "
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextEntryStationTicketId"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="112dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="123456789"
+        android:textColor="#D3D3D3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.733"
+        app:layout_constraintStart_toEndOf="@+id/textEntryStationTicketId"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--View & Checkout buttons -->
+
+    <!-- Print parking hours on screen -->
+
+
+    <Button
+        android:id="@+id/buttonExitView"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="80dp"
+        android:text="View"
+        app:layout_constraintEnd_toStartOf="@+id/buttonExitCheckOut"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEntryStationTicketId" />
+
+    <Button
+        android:id="@+id/buttonExitCheckOut"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="12dp"
+        android:text="Check Out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEntryStationTicketId" />
+
+    <!-- Print payment on screen -->
+
+    <TextView
+        android:id="@+id/textExitParkingHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="Parking hours"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/textExitSugesstedSpotOut"
+        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonExitView" />
+
+    <TextView
+        android:id="@+id/textExitSugesstedSpotOut"
+        android:layout_width="140dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="12dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonExitCheckOut" />
+
+    <TextView
+        android:id="@+id/textExitTopay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="To Pay"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/textExitSToPayOut"
+        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textExitParkingHours" />
+
+    <TextView
+        android:id="@+id/textExitSToPayOut"
+        android:layout_width="140dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="12dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textExitSugesstedSpotOut" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
