@@ -3,6 +3,9 @@
 
     <application>
         <activity
+            android:name=".MainActivityEntryStationModifySpot"
+            android:exported="false" />
+        <activity
             android:name=".MainActivityEntryStation"
             android:exported="false" />
     </application>

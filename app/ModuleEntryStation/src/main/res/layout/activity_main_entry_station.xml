@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivityEntryStation">
+    tools:context=".MainActivityEntryStation"
+    android:id="@+id/EntryID"
+    >
 
 
 
-   <!--code for ticket id -->
+    <!--code for ticket id -->
     <TextView
         android:id="@+id/textEntryStationTicketId"
         android:layout_width="wrap_content"
@@ -22,18 +24,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
- <EditText
-     android:id="@+id/editTextEntryStationTicketId"
-     android:layout_width="wrap_content"
-     android:layout_height="60dp"
-     android:layout_marginTop="112dp"
-     android:ems="10"
-     android:inputType="textPersonName"
-     android:hint="123456789"
-     app:layout_constraintEnd_toEndOf="parent"
-     app:layout_constraintHorizontal_bias="0.733"
-     app:layout_constraintStart_toEndOf="@+id/textEntryStationTicketId"
-     app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/editTextEntryStationTicketId"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="112dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="123456789"
+        android:textColor="#D3D3D3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.733"
+        app:layout_constraintStart_toEndOf="@+id/textEntryStationTicketId"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <!--code for Parking spot id -->
@@ -83,11 +86,11 @@
 
     <!-- Add spot only appear for Admin -->
     <Button
-        android:id="@+id/ButtonAddSpot"
+        android:id="@+id/ButtonModifySpot"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginTop="40dp"
-        android:text="Add spot"
+        android:text="Modify spots"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
@@ -104,7 +107,7 @@
         app:layout_constraintEnd_toStartOf="@+id/textEntryStationSugesstedSpotOut"
         app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonAddSpot" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonModifySpot" />
 
     <TextView
         android:id="@+id/textEntryStationSugesstedSpotOut"
@@ -116,7 +119,7 @@
         android:textAlignment="center"
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonAddSpot" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonModifySpot" />
 
     <Button
         android:id="@+id/buttonEntryStationFreeSpaces"

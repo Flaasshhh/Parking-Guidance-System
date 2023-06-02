@@ -14,6 +14,9 @@ public class Ticket {
         private LocalDateTime ExitTimeStamp;
 
         private static List<Ticket> ticketList = new ArrayList<>();
+        private static List<String> FreeSpotsList = new ArrayList<>();
+        private static boolean isGenratedFreeSpots = false ;
+
 
         public Ticket() {
                 TicketID = -1;
@@ -44,16 +47,31 @@ public class Ticket {
                 this.TicketID = newTicketID;
         }
 
-/*
-        public Ticket(String plateNUM) {
-                PlateNUM = plateNUM;
-                EntryTimeStamp = LocalDateTime.now();
-
-                Random random = new Random();
-                TicketID = random.nextInt(90000) + 10000;
-
+        public static List<String> getFreeSpotsList() {
+                return FreeSpotsList;
         }
-*/
+
+        public static void setFreeSpotsList(List<String> freeSpotsList) {
+                FreeSpotsList = freeSpotsList;
+        }
+
+        public static boolean isIsGenratedFreeSpots() {
+                return isGenratedFreeSpots;
+        }
+
+        public static void setIsGenratedFreeSpots(boolean isGenratedFreeSpots) {
+                Ticket.isGenratedFreeSpots = isGenratedFreeSpots;
+        }
+
+        public static void GenerateDataFreeSpotsList(){
+                FreeSpotsList.add("1");
+                FreeSpotsList.add("2");
+                FreeSpotsList.add("3");
+                FreeSpotsList.add("4");
+                FreeSpotsList.add("5");
+                FreeSpotsList.add("6");
+                FreeSpotsList.add("7");
+        }
         public static Ticket getTicket(String PlateNUM){
                 for (Ticket ticket : ticketList) {
                         if (ticket.getPlateNUM() == PlateNUM){
