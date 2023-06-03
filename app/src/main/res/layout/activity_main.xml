@@ -50,7 +50,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPrompt" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPrompt"
+
+        />
 
     <Button
         android:id="@+id/ButtonAdminModule"

@@ -2,6 +2,7 @@ package com.example.moduleentrystation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.modulecustomer.Ticket;
 
@@ -32,15 +34,6 @@ public class MainActivityEntryStationModifySpot extends AppCompatActivity {
 
     List <String>  FreeSpotList ;
 
-    /*@Override
-    public void onBackPressed() {
-        // Start the new Activity
-        Intent intent = new Intent(this, MainActivityEntryStation.class);
-        startActivity(intent);
-
-        // Finish the current Activity
-        finish();
-    }*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +61,7 @@ public class MainActivityEntryStationModifySpot extends AppCompatActivity {
         DeleteSpotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DeleteSpotButtonPressed() ;
+                DeleteSpotButtonPressed(FreeSpotList) ;
             }
         });
 
@@ -134,7 +127,7 @@ public class MainActivityEntryStationModifySpot extends AppCompatActivity {
         DeleteButton.setVisibility(View.GONE);
     }
 
-    public void DeleteSpotButtonPressed(){
+    public void DeleteSpotButtonPressed(List <String> FreeSpotsList){
 
         TextSPotNumber = findViewById(R.id.textModifySpotSpotNumber);
         EditTextSpotNumber = findViewById(R.id.editTextSpotNumber) ;
@@ -146,10 +139,14 @@ public class MainActivityEntryStationModifySpot extends AppCompatActivity {
 
         textParkinSpot = findViewById(R.id.textModifySpotParkingSpot) ;
         spinnerFreeSpots = findViewById(R.id.spinnerModifySpotParkingSpot) ;
+        if (FreeSpotsList.size() == 0){
+            DeleteButton.setVisibility(View.GONE);
+        } else {DeleteButton.setVisibility(View.VISIBLE);}
+
         DeleteButton = findViewById(R.id.ButtonDelete);
         textParkinSpot.setVisibility(View.VISIBLE);
         spinnerFreeSpots.setVisibility(View.VISIBLE);
-        DeleteButton.setVisibility(View.VISIBLE);
+
     }
 
     public void AddListSpotsToSpinnerfunc(List<String> FreeSpotsList ){
@@ -164,24 +161,49 @@ public class MainActivityEntryStationModifySpot extends AppCompatActivity {
         int check = 0 ;
         int ListSize = FreeSpotsList.size();
         for (int i = 0 ; i<ListSize ; i++){
-            if (FreeSpotsList.get(i) == EditTextInput) {
+            String TextInput = FreeSpotsList.get(i);
+            if (TextInput.equals(EditTextInput)) {
                 check = 1 ;
+
+                showToast(MainActivityEntryStationModifySpot.this , "Spot Already exists");
             }
         }
         if (check == 0) {
             FreeSpotsList.add(EditTextInput);
+            FreeSpotsList.sort(null); // sort ascending
             Ticket.setFreeSpotsList(FreeSpotsList);
+
+            EditTextSpotNumber.setText("");
+            // Get the adapter from the Spinner
+            ArrayAdapter<String> adapter = (ArrayAdapter<String>) spinnerFreeSpots.getAdapter();
+            // Set the adapter again to refresh the Spinner
+            spinnerFreeSpots.setAdapter(adapter);
+            showToast(MainActivityEntryStationModifySpot.this , "Spot Added successfully");
         }
     }
 
     public void DeleteButtonPressed (List <String> FreeSpotsList ,String SpinnerText ){
-        FreeSpotsList.remove(SpinnerText) ;
-        Ticket.setFreeSpotsList(FreeSpotsList);
 
-        // Get the adapter from the Spinner
-        ArrayAdapter<String> adapter = (ArrayAdapter<String>) spinnerFreeSpots.getAdapter();
-        // Set the adapter again to refresh the Spinner
-        spinnerFreeSpots.setAdapter(adapter);
+        if (FreeSpotsList.size() == 1){
+            DeleteButton.setVisibility(View.GONE);
+        }
+
+            FreeSpotsList.remove(SpinnerText);
+            FreeSpotsList.sort(null); // sort ascending
+            Ticket.setFreeSpotsList(FreeSpotsList);
+
+            showToast(MainActivityEntryStationModifySpot.this, "Spot Deleted Successfully");
+
+            // Get the adapter from the Spinner
+            ArrayAdapter<String> adapter = (ArrayAdapter<String>) spinnerFreeSpots.getAdapter();
+            // Set the adapter again to refresh the Spinner
+            spinnerFreeSpots.setAdapter(adapter);
+
+
+
+
+
+        }
 
 
 
@@ -189,6 +211,9 @@ public class MainActivityEntryStationModifySpot extends AppCompatActivity {
 
 
 
+
+    public void showToast(Context context, String message) { //This to popup messages for Add & Delete
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 
 }

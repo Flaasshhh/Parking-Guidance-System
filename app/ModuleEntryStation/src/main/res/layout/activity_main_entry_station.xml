@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +9,7 @@
     tools:context=".MainActivityEntryStation"
     android:id="@+id/EntryID"
     >
+
 
 
 
@@ -31,8 +34,8 @@
         android:layout_marginTop="112dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="123456789"
-        android:textColor="#D3D3D3"
+        android:hint="123456789"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toEndOf="@+id/textEntryStationTicketId"
@@ -82,7 +85,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEntryStationParkingSpot" />
+        app:layout_constraintTop_toBottomOf="@+id/textEntryStationParkingSpot"
+
+
+        />
 
     <!-- Add spot only appear for Admin -->
     <Button
@@ -120,20 +126,21 @@
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ButtonModifySpot" />
-
+<!--
     <Button
         android:id="@+id/buttonEntryStationFreeSpaces"
         android:layout_width="359dp"
         android:layout_height="84dp"
-        android:layout_marginTop="68dp"
+
         android:text="Free Space(s)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEntryStationSugesstedSpot"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.329" />
 
-
+        -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
