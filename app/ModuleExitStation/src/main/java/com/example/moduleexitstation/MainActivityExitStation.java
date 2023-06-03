@@ -30,7 +30,6 @@ public class MainActivityExitStation extends AppCompatActivity {
         editTextTicketID = findViewById(R.id.editTextTicketID);
 
         buttonExitView.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 int TicketID;
@@ -51,7 +50,6 @@ public class MainActivityExitStation extends AppCompatActivity {
                     textViewResultParkingHours.setText(Long.toString(TimeParked.toMinutes()));
                     textViewResultMinuteRate.setText(Integer.toString(t.getMinuteRate()));
                     textViewResultToPay.setText(Long.toString(TimeParked.toMinutes()*t.getMinuteRate()));
-
                 }
             }
         });
