@@ -3,11 +3,17 @@ package com.example.moduleentrystation;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.PopupMenu;
+import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.app.Activity;
 import android.widget.TextView;
 import android.widget.ArrayAdapter;
+
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -16,6 +22,7 @@ public class MainActivityEntryStation extends AppCompatActivity {
 
     // this will be used for adding list items to spinner
     private Spinner ParkinSpotSpinner ;
+    Button ButtonAddSpot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +38,16 @@ public class MainActivityEntryStation extends AppCompatActivity {
 
         //Adding Intialized Free spots to the parking spot drop down box
         AddListSpotsToSpinnerfunc(FreeSpotsListReturn);
-
-
-
-      /*  Random random = new Random() ;
-        String randomString = FreeSpotsList.get(random.nextInt(FreeSpotsList.size()));
-        SuggestedSpotTextView.setText(randomString.toString());
-       */
-
+        ButtonAddSpot = findViewById(R.id.ButtonAddSpot);
+        ButtonAddSpot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupWindow hi = new PopupWindow();
+            }
+        });
 
 
     }
-
-
 
     //This function is to add the initial free spots in app
     public List <String> IntializeFreeSpotsfunc (){
