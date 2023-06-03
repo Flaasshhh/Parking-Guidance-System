@@ -2,7 +2,6 @@ package com.example.modulecustomer;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -12,6 +11,7 @@ public class Ticket {
         private String PlateNUM;
         private LocalDateTime EntryTimeStamp;
         private LocalDateTime ExitTimeStamp;
+        private int MinuteRate;
 
         private static List<Ticket> ticketList = new ArrayList<>();
         private static List<String> FreeSpotsList = new ArrayList<>();
@@ -22,11 +22,13 @@ public class Ticket {
                 TicketID = -1;
                 PlateNUM = "";
                 EntryTimeStamp = LocalDateTime.now();
+                MinuteRate = 0;
         }
 
         public Ticket(String plateNUM) {
                 this.PlateNUM = plateNUM;
                 this.EntryTimeStamp = LocalDateTime.now();
+                MinuteRate = 50;
 
                 Random random = new Random();
                 boolean duplicateFound;
@@ -74,13 +76,21 @@ public class Ticket {
         }
         public static Ticket getTicket(String PlateNUM){
                 for (Ticket ticket : ticketList) {
-                        if (ticket.getPlateNUM() == PlateNUM){
+                        if (ticket.getPlateNUM().equals(PlateNUM)){
                                 return ticket;
                         }
                 }
                 return new Ticket();
         }
-        public static boolean isParked(String PlateNUM){
+        public static Ticket getTicket(int TicketID){
+                for (Ticket ticket : ticketList) {
+                        if (ticket.getTicketID()== TicketID){
+                                return ticket;
+                        }
+                }
+                return new Ticket();
+        }
+        public static boolean isCheckedIn(String PlateNUM){
                 for (Ticket ticket : ticketList) {
                         if (ticket.getPlateNUM().equals(PlateNUM)){
                                 return true;
@@ -88,7 +98,14 @@ public class Ticket {
                 }
                 return false;
         }
-
+        public static boolean isCheckedIn(int TicketID){
+                for (Ticket ticket : ticketList) {
+                        if (ticket.getTicketID() == TicketID){
+                                return true;
+                        }
+                }
+                return false;
+        }
         public static List<Ticket> getTicketList() {
                 return ticketList;
         }
@@ -106,16 +123,10 @@ public class Ticket {
                 TicketID = random.nextInt(90000) + 10000;
         }
 
-        public long MinutesParked() {
+        public Duration TimeParked() {
                 LocalDateTime currentTime = LocalDateTime.now();
                 Duration duration = Duration.between(EntryTimeStamp, currentTime);
-                return duration.toMinutes();
-        }
-
-        public long HoursParked() {
-                LocalDateTime currentTime = LocalDateTime.now();
-                Duration duration = Duration.between(EntryTimeStamp, currentTime);
-                return duration.toHours();
+                return duration;
         }
 
         public int getTicketID() {
@@ -132,6 +143,14 @@ public class Ticket {
 
         public LocalDateTime getExitTimeStamp() {
                 return ExitTimeStamp;
+        }
+
+        public int getMinuteRate() {
+                return MinuteRate;
+        }
+
+        public void setMinuteRate(int minuteRate) {
+                MinuteRate = minuteRate;
         }
 
         public void setTicketID(int ticketID) {
