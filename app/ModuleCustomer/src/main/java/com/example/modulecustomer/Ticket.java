@@ -12,10 +12,12 @@ public class Ticket {
         private LocalDateTime EntryTimeStamp;
         private LocalDateTime ExitTimeStamp;
         private int MinuteRate;
-
+        private int ParkingSpot;
         private static List<Ticket> ticketList = new ArrayList<>();
         private static List<String> FreeSpotsList = new ArrayList<>();
         private static boolean isGenratedFreeSpots = false ;
+
+        private static Ticket currentT;
 
 
         public Ticket() {
@@ -29,6 +31,7 @@ public class Ticket {
                 this.PlateNUM = plateNUM;
                 this.EntryTimeStamp = LocalDateTime.now();
                 MinuteRate = 50;
+                ParkingSpot = 0;
 
                 Random random = new Random();
                 boolean duplicateFound;
@@ -106,6 +109,15 @@ public class Ticket {
                 }
                 return false;
         }
+
+        public static Ticket getCurrentT() {
+                return currentT;
+        }
+
+        public static void setCurrentT(Ticket currentT) {
+                Ticket.currentT = currentT;
+        }
+
         public static List<Ticket> getTicketList() {
                 return ticketList;
         }
@@ -116,6 +128,14 @@ public class Ticket {
 
         public static void addToTicketList(Ticket ticket){
                 ticketList.add(ticket);
+        }
+
+        public int getParkingSpot() {
+                return ParkingSpot;
+        }
+
+        public void setParkingSpot(int parkingSpot) {
+                ParkingSpot = parkingSpot;
         }
 
         public void RegenerateTicketID(){

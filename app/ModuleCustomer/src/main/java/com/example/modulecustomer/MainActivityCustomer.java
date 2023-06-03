@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.Time;
 import java.time.Duration;
@@ -27,10 +29,13 @@ public class MainActivityCustomer extends AppCompatActivity {
     Button ButtonClearCheckIn;
     ConstraintLayout ConstraintLayoutCheckIn;
     ConstraintLayout ConstraintLayoutCheckOut;
+
+    Button ButtonCheckSpot;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_customer);
+        Ticket ticket;
 
         // Declarations
         ConstraintLayoutCheckIn = findViewById(R.id.LayoutCheckIn);
@@ -48,11 +53,14 @@ public class MainActivityCustomer extends AppCompatActivity {
         ButtonClearCheckIn = findViewById(R.id.ButtonClearCheckIn);
         ButtonCheckIn = findViewById(R.id.ButtonCheckIn);
         ButtonCheckOut = findViewById(R.id.ButtonCheckOut);
+        ButtonCheckSpot = findViewById(R.id.ButtonCheckSpot);
 
 
         // Initializations
         ConstraintLayoutCheckIn.setVisibility(View.GONE);
         ConstraintLayoutCheckOut.setVisibility(View.GONE);
+        ButtonCheckSpot.setEnabled(false);
+        ButtonCheckSpot.setBackgroundColor(android.graphics.Color.parseColor("#445c5f60"));
 
         ButtonCheckIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,13 +98,18 @@ public class MainActivityCustomer extends AppCompatActivity {
                     EditTextPlateID.setError("You must enter your plate number");
                 else if (Ticket.isCheckedIn(PlateNUM)) {
                     TextViewResultCheckIn.setText("Car With Plate: " + PlateNUM + "\nAlready Checked in \nwith ticket ID: " + Ticket.getTicket(PlateNUM).getTicketID());
+                    ButtonCheckSpot.setEnabled(true);
+                    ButtonCheckSpot.setBackgroundColor(android.graphics.Color.parseColor("#ff5c5f60"));
                 }
                 else {
                     Ticket t = new Ticket(PlateNUM);
                     Ticket.addToTicketList(t);
+                    Ticket.setCurrentT(t);
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm a");
                     TextViewResultCheckIn.setText("Ticket ID: " + t.getTicketID() + "\nEntry Time: " + t.getEntryTimeStamp().format(formatter).toString());
-                    EditTextPlateID.setText("");
+                    ButtonCheckSpot.setEnabled(true);
+                    ButtonCheckSpot.setBackgroundColor(android.graphics.Color.parseColor("#ff5c5f60"));
+                     EditTextPlateID.setText("");
                 }
             }
         });
@@ -123,13 +136,28 @@ public class MainActivityCustomer extends AppCompatActivity {
                 }
             }
         });
+        ButtonCheckSpot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Ticket t = Ticket.getCurrentT();
+                    if(t.getParkingSpot() == 0)
+                        showToast(MainActivityCustomer.this, "Spot Not Assigned Yet, Please provide \nTicket ID to Entry Station Operator");
+                    else
+                        showToast(MainActivityCustomer.this, "Parking Spot " + t.getParkingSpot() + " is reserved for you");
+                }
+        });
         ButtonClearCheckIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EditTextPlateID.setText("");
                 TextViewResultCheckIn.setText("");
+                ButtonCheckSpot.setEnabled(false);
+                ButtonCheckSpot.setBackgroundColor(android.graphics.Color.parseColor("#445c5f60"));
             }
         });
+    }
+    private void showToast(Context context, String message){
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 }
 

@@ -61,7 +61,8 @@
                 android:id="@+id/LayoutCheckOut"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/textViewResultCheckOut"
@@ -109,9 +110,9 @@
                     android:backgroundTint="#020303"
                     android:text="Calculate Price"
                     android:textColor="#ffffff"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/editTextTicketID"
                     app:layout_constraintVertical_bias="0.02" />
@@ -124,7 +125,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="26dp"
+                tools:layout_editor_absoluteY="0dp">
+
+                <Button
+                    android:id="@+id/ButtonCheckSpot"
+                    android:layout_width="340dp"
+                    android:layout_height="49dp"
+                    android:backgroundTint="#445c5f60"
+                    android:text="Check Spot"
+                    android:textColor="#ffffff"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ButtonPrintTicket"
+                    app:layout_constraintVertical_bias="0.01" />
 
                 <TextView
                     android:id="@+id/textViewCheckIn"
@@ -155,14 +172,14 @@
                 <TextView
                     android:id="@+id/textViewResultCheckIn"
                     android:layout_width="380dp"
-                    android:layout_height="327dp"
+                    android:layout_height="270dp"
                     android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.483"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ButtonPrintTicket"
-                    app:layout_constraintVertical_bias="0.588" />
+                    app:layout_constraintTop_toBottomOf="@+id/ButtonCheckSpot"
+                    app:layout_constraintVertical_bias="0.6" />
 
                 <Button
                     android:id="@+id/ButtonPrintTicket"
